@@ -3,7 +3,9 @@ import cors from 'cors';
 import helmet from 'helmet';
 import dotenv from 'dotenv';
 import { connectDB } from './config/database.js';
-
+import formRoutes from './routes/forms.js';
+import responseRoutes from './routes/responses.js';
+import uploadRoutes from './routes/upload.js';
 
 dotenv.config();
 
@@ -14,13 +16,17 @@ app.use(helmet({
 }));
 
 app.use(cors({ 
-  origin: process.env.FRONTEND_URL || 'http://localhost:3000',
+  origin: process.env.FRONTEND_URL || 'http://localhost:5000',
   credentials: true
 }));
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
+
+app.use('/api/forms', formRoutes);
+app.use('/api/responses', responseRoutes);
+app.use('/api/upload', uploadRoutes);
 
 
 const PORT = process.env.PORT || 5000;
