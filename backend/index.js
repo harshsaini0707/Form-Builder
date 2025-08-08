@@ -2,10 +2,10 @@ import express from 'express';
 import cors from 'cors';
 import helmet from 'helmet';
 import dotenv from 'dotenv';
-import { connectDB } from './config/database.js';
-import formRoutes from './routes/forms.js';
-import responseRoutes from './routes/responses.js';
-import uploadRoutes from './routes/upload.js';
+import { connectDB } from './src/config/database.js';
+import formRoutes from './src/routes/forms.routes.js';
+import responseRoutes from './src/routes/responses.routes.js';
+import uploadRoutes from './src/routes/upload.routes.js';
 
 dotenv.config();
 

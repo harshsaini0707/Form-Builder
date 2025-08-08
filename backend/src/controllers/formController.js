@@ -1,4 +1,4 @@
-import Form from '../models/Form.js';
+import Form from '../models/Form.model.js';
 import { validationResult } from 'express-validator';
 
 export async function createForm(req, res) {

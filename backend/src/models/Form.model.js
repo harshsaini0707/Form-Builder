@@ -1,14 +1,13 @@
 import mongoose from "mongoose";
 
 const questionSchema = new mongoose.Schema({
+  id: String,
   type: { type: String, enum: ["categorize", "cloze", "comprehension"] },
-  questionText: String,
-  image: String,      
-  options: [String],
-  categories: [String], 
-  correctAnswer: mongoose.Schema.Types.Mixed, 
-  passage: String, 
-  blanks: [String],  
+  title: String,
+  description: String,
+  image: String,
+  required: Boolean,
+  settings: mongoose.Schema.Types.Mixed
 });
 
 

@@ -1,5 +1,5 @@
 import Response from '../models/Response.js';
-import Form from '../models/Form.js';
+import Form from '../models/Form.model.js';
 import { validationResult } from 'express-validator';
 import {
   validateCategorize,

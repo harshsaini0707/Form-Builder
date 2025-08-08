@@ -2,13 +2,17 @@ import mongoose from "mongoose";
 
 const responseSchema = new mongoose.Schema({
   formId: { type: mongoose.Schema.Types.ObjectId, ref: 'Form' },
-  responses: [{
-    questionIdx: Number,
+  respondentEmail: String,
+  answers: [{
+    questionId: String,
     answer: mongoose.Schema.Types.Mixed,
+    isCorrect: Boolean,
+    score: Number
   }],
- 
-},{
-    timestamps :  true
+  totalScore: Number,
+  completionTime: Number
+}, {
+  timestamps: true
 });
 
 export default mongoose.model("Response",responseSchema)

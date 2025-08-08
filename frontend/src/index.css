@@ -1,1 +1,90 @@
 @import "tailwindcss";
+
+@theme {
+  --color-primary-50: #eef4ff;
+  --color-primary-100: #dbe5ff;
+  --color-primary-200: #b7cbff;
+  --color-primary-300: #8eaeff;
+  --color-primary-400: #628dff;
+  --color-primary-500: #3e6dff;
+  --color-primary-600: #2f55db;
+  --color-primary-700: #2441b6;
+  --color-primary-800: #1a2d8f;
+  --color-primary-900: #111d70;
+  
+  --font-family-sans: Inter, system-ui, sans-serif;
+}
+
+/* Google font */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap');
+
+@layer base {
+  body { 
+    @apply bg-gray-50 text-gray-900 font-sans antialiased; 
+  }
+}
+
+@layer components {
+  .btn {
+    @apply inline-flex items-center justify-center gap-1 rounded-md font-medium text-sm px-4 py-2 transition-colors focus:outline-none focus:ring-2 focus:ring-offset-2;
+  }
+  
+  .btn-primary {
+    @apply bg-primary-600 text-white hover:bg-primary-700 focus:ring-primary-500;
+  }
+  
+  .btn-secondary {
+    @apply bg-white border border-gray-300 hover:bg-gray-100 focus:ring-primary-500;
+  }
+  
+  .input {
+    @apply w-full h-10 rounded-md border border-gray-300 px-3 py-2 focus:outline-none focus:ring-2 focus:ring-primary-500;
+  }
+  
+  .card {
+    @apply bg-white rounded-lg border shadow-sm;
+  }
+
+  /* Drag and drop styles */
+  .draggable-item {
+    @apply cursor-grab active:cursor-grabbing;
+  }
+
+  .droppable-zone {
+    @apply transition-all duration-200;
+  }
+
+  .droppable-zone.drag-over {
+    @apply border-primary-500 bg-primary-50;
+  }
+
+  /* Question editor styles */
+  .question-editor {
+    @apply space-y-6;
+  }
+
+  .question-section {
+    @apply space-y-4;
+  }
+
+  .question-section-header {
+    @apply flex items-center justify-between;
+  }
+
+  .question-section-title {
+    @apply font-medium text-lg;
+  }
+
+  /* Preview styles */
+  .preview-container {
+    @apply space-y-6;
+  }
+
+  .preview-title {
+    @apply text-xl font-semibold;
+  }
+
+  .preview-description {
+    @apply text-gray-600;
+  }
+}

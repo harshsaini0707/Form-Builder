@@ -1,9 +1,23 @@
-import React from 'react'
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { Toaster } from 'react-hot-toast';
+import Shell from './components/layout/Shell';
+import Dashboard from './pages/Dashboard';
+import FormBuilder from './pages/FormBuilder';
 
-const Home = () => {
+export default function App() {
   return (
-    <div>Home</div>
-  )
-}
+    <>
+      <BrowserRouter>
+        <Routes>
+          <Route element={<Shell />}>
+            <Route index element={<Dashboard />} />
+            <Route path="builder" element={<FormBuilder />} />
+            <Route path="builder/:id" element={<FormBuilder />} />
+          </Route>
+        </Routes>
+      </BrowserRouter>
 
-export default Home
+      <Toaster position="top-right" gutter={12} toastOptions={{ duration: 3500 }} />
+    </>
+  );
+}
